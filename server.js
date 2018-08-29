@@ -8,7 +8,7 @@ app.set('port', process.env.PORT  || config.port); // Set port to 3000 or the pr
 
 
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, './')));
 app.use(logger('dev')); // Log requests to the console
 app.use(bodyParser.json()); // Parse JSON data and put it into an object which we can access
 app.use(bodyParser.urlencoded({
