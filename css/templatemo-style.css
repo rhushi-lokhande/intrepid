@@ -6,7 +6,7 @@ http://www.templatemo.com/preview/templatemo_450_awesome
 body
 	{
 		background: #ffffff;
-		color: #696969;
+		color: #03375a;
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 300;
 		overflow-x: hidden; /* prevent horizontal scrollbar from appearing */
@@ -193,8 +193,9 @@ header .social-icon li a
 		font-size: 13px;
 		height: 70px;
 		line-height: 40px;
+		color: #03375a;
 	}
-
+	
 .navbar-default .navbar-nav > li > a.current { 
 	color: #f89422; 
 }
