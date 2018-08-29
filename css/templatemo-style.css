@@ -510,7 +510,7 @@ header .social-icon li a
 		text-decoration: none;
 		-webkit-transition: all 0.4s ease-in-out;
 		        transition: all 0.4s ease-in-out;
-		margin-right: 10px;
+		margin-right: 5px;
 	}
 .social-icon li a:hover
 	{
