@@ -8,7 +8,7 @@ body
 		background: #ffffff;
 		color: #03375a;
 		font-family: 'Open Sans', sans-serif;
-		font-weight: 300;
+		font-weight: 400;
 		overflow-x: hidden; /* prevent horizontal scrollbar from appearing */
 	}
 	
@@ -23,7 +23,6 @@ a:hover {
 /* start h2 */
 h2
 	{
-		text-align: center;
 		font-size: 40px;
 		padding-bottom: 40px;
 	}	
@@ -221,6 +220,7 @@ header .social-icon li a
 		min-height: 650px;
 		color: #FFF;
 		position: relative;
+		background-attachment: fixed;
 	}
 	
 #home h1
@@ -259,14 +259,25 @@ header .social-icon li a
 }
 /* end home */
 
+
+.about-container{
+	text-align: justify;
+}
+.about-container p{
+	line-height: 27px;
+}
+.about-us-img{
+	max-width: 100%;
+	transform: rotate3d(15, 1, 6, 45deg); 
+}
 /* start about */
-#about .media-heading-wrapper
+#service .media-heading-wrapper
 	{
 		padding-bottom: 32px;
 		text-transform: uppercase;
 		text-align: center;
 	}
-#about .media-heading-wrapper .fa
+#service .media-heading-wrapper .fa
 	{
 		border: 1px solid #fff;
 		border-radius: 2px;
@@ -279,13 +290,13 @@ header .social-icon li a
 		margin-bottom: 20px;
 		margin-right: 20px;
 	}
-#about .media-heading-wrapper h3
+#service .media-heading-wrapper h3
 	{
 		font-size: 18px;
 		font-weight: bold;
 		padding-top: 20px;
 	}
-	#about .media-body{
+	#service .media-body{
 		text-align: justify;
 		padding: 20px;
 	}
@@ -300,7 +311,7 @@ header .social-icon li a
     border: solid 1px #dadada;
     box-shadow: 0px 0px 5px 2px #e2e2e2;
 	}
-	.about-container{
+	.service-container{
 		display: flex;
 	}
 	.media-img{
@@ -341,41 +352,6 @@ header .social-icon li a
 	}
 /* end team */
 
-/* start service */
-#service .col-md-4
-	{
-		padding: 40px;
-		-webkit-transition: all 0.4s ease-in-out;
-		        transition: all 0.4s ease-in-out;
-	}
-#service .col-md-4:hover
-	{
-		background: #505050;
-	}
-#service .active
-	{
-		background: #505050;
-		padding: 40px;
-	}
-#service .fa
-	{
-		border: 1px solid #fff;
-		border-radius: 2px;
-		color: #fff;
-		font-size: 50px;
-		width: 100px;
-		height: 100px;
-		line-height: 100px;
-		text-align: center;
-	}
-#service h4
-	{
-		color: #f89422;
-		font-weight: 600;
-		padding-top: 10px;
-		padding-bottom: 14px;
-	}
-/* end service */
 
 /* start portfolio */
 #portfolio
