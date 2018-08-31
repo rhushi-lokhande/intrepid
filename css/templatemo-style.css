@@ -131,12 +131,19 @@ header
 		min-height: 20px;
 		padding-top: 10px;
 		border-top: solid 3px #f89422;
-		background-color: #000000;
+		background-color: transparent;
 		color: #ffffff;
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		z-index: 1;
+		font-weight: bold;
 	}
 	.templatemo-nav.sticky{
 		border-top: solid 3px #f89422;
 		box-shadow: 0px 1px 5px #888888;
+		background-color: #FFF;
+		transition: 0.5s;
 	}
 header .fa
 	{
@@ -150,7 +157,7 @@ header span
 	}
 header a
 	{
-		color: #999;
+		color: #FFF;
 		font-weight: 600;
 	}
 header .social-icon
@@ -192,6 +199,9 @@ header .social-icon li a
 		font-size: 13px;
 		height: 70px;
 		line-height: 40px;
+		color: #FFF;
+	}
+	.navbar-default.sticky .navbar-nav li a{
 		color: #03375a;
 	}
 	
@@ -202,6 +212,12 @@ header .social-icon li a
 	border-radius: 0;	
 	width: 100%;
 	z-index: 1000;
+	position: absolute;
+	background-color: transparent;
+	top: 40px;
+}
+.templatemo-nav a{
+	color: #FFF;
 }
 .sticky {	
 	position: fixed;
@@ -615,7 +631,10 @@ header .social-icon li a
 /* end 360 media quires */
 
 .inner-overly{
-	background: rgba(247, 148, 34, 0.37) none repeat scroll 0 0;
+	background: #00F260;
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+    background: linear-gradient(to right, #0575E6, #00F260);
+    opacity: 0.7;
     height: 100%;
     left: 0;
     position: absolute;
