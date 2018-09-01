@@ -200,6 +200,7 @@ header .social-icon li a
 		height: 70px;
 		line-height: 40px;
 		color: #FFF;
+		text-transform: uppercase;
 	}
 	.navbar-default.sticky .navbar-nav li a{
 		color: #03375a;
@@ -217,6 +218,7 @@ header .social-icon li a
 }
 .templatemo-nav a{
 	color: #FFF;
+	text-transform: capitalize;
 }
 .sticky {	
 	position: fixed;
