@@ -287,7 +287,13 @@ header .social-icon li a
 }
 .about-us-img{
 	max-width: 100%;
-	transform: rotate3d(15, 1, 6, 45deg); 
+	border-radius: 8px;
+    box-shadow: 0 20px 25px 0 rgba(0,0,0,0.1);
+    perspective: 300px;
+    transform: rotate3d(0, 1, 0, -11deg) scale(.9, 1);
+}
+.abt-img-cont{
+	perspective: 300px;
 }
 /* start about */
 #service{
