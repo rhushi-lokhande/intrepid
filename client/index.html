@@ -56,7 +56,7 @@
 					<p>
 						<i class="fa fa-envelope-o"></i>
 						<span> Email</span>
-						<a  href="mailto:Intrepid@company.com">info@intrepidacademy.in</a>
+						<a href="mailto:Intrepid@company.com">info@intrepidacademy.in</a>
 					</p>
 				</div>
 				<div class="col-md-3 col-sm-4 col-xs-12">
@@ -157,9 +157,9 @@
 			<div class="row about-container">
 				<div class="col-md-5 col-md-offset-1">
 					<p class="wow bounceInLeft" data-wow-delay="0.3s" data-wow-offset="50">
-						Intrepid academy is committed to give new hope & development towards students Carrier & Education by creating
-						environment which boost their confidence & enthusiasm to achieve highest possible results. Our teachers are Expert,
-						Dynamic, highly academic & eager to offer the smart quality education.
+						Intrepid academy is committed to give new hope & development towards students Carrier & Education by creating environment
+						which boost their confidence & enthusiasm to achieve highest possible results. Our teachers are Expert, Dynamic, highly
+						academic & eager to offer the smart quality education.
 					</p>
 					<p class="wow bounceInLeft" data-wow-delay="0.7s" data-wow-offset="50">
 						The moral of INTREPID ACADEMY is to recognize the potential in every student & help them to succeed in their academics &
@@ -181,8 +181,8 @@
 				</div>
 				<div class="col-md-10 text-justify col-md-offset-1">
 					<p class="wow bounceInLeft" data-wow-delay="1.3s" data-wow-offset="50">
-						Intrepid Academy started with a vision to change the complete scenario about how Home Tuition & Classroom Teaching
-						works. We at Intrepid Academy provide best Home Tutor & Classroom Teaching which helps students to understand the subject
+						Intrepid Academy started with a vision to change the complete scenario about how Home Tuition & Classroom Teaching works.
+						We at Intrepid Academy provide best Home Tutor & Classroom Teaching which helps students to understand the subject
 						in a better way & help them to grow in all-round manner.
 					</p>
 				</div>
@@ -193,8 +193,8 @@
 				</div>
 				<div class="col-md-10 col-md-offset-1">
 					<p class="wow bounceInLeft" data-wow-delay="1.3s" data-wow-offset="50">
-						To provide personalize attention towards students which bring best out of them & performance of Students is
-						evaluated by conducting regular test & parents meet.
+						To provide personalize attention towards students which bring best out of them & performance of Students is evaluated by
+						conducting regular test & parents meet.
 					</p>
 				</div>
 			</div>
@@ -219,7 +219,7 @@
 							<img src="./images/tuitionclasses.jpg" alt="">
 						</div>
 						<div class="media-heading-wrapper">
-							<h3 class="media-heading p-color">Tuition Classes</h3>
+							<h3 class="media-heading p-color">Classrooms</h3>
 						</div>
 						<div class="media-body">
 							<ul>
@@ -236,15 +236,15 @@
 							<img src="./images/tutor.jpg" alt="">
 						</div>
 						<div class="media-heading-wrapper">
-							<h3 class="media-heading p-color">Home tutor</h3>
+							<h3 class="media-heading p-color">Home Tutorials</h3>
 						</div>
 						<div class="media-body">
 							<ul>
 								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
 									KG to 12th std -All Subjects -All Boards
-								</lia>
-								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="1.5s">Poly, BE, BCA, BBA, BSC, BCOM </li>
-								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="2.0s">MSC, MCOM</li>
+									</lia>
+									<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="1.5s">Poly, BE, BCA, BBA, BSC, BCOM </li>
+									<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="2.0s">MSC, MCOM</li>
 							</ul>
 						</div>
 					</div>
@@ -333,15 +333,15 @@
 					</h2>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
-					<form action="#" method="post">
+					<form onsubmit="postQuery(this); return false" id="QueryForm">
 						<label>NAME</label>
-						<input name="fullname" type="text" class="form-control" id="fullname">
+						<input name="name" type="text" class="form-control" id="name" required>
 
 						<label>EMAIL</label>
-						<input name="email" type="email" class="form-control" id="email">
+						<input name="email" type="email" class="form-control" id="email" required>
 
 						<label>MESSAGE</label>
-						<textarea name="message" rows="4" class="form-control" id="message"></textarea>
+						<textarea name="message" rows="4" class="form-control" id="message" required></textarea>
 
 						<input type="submit" class="form-control">
 					</form>
@@ -398,6 +398,26 @@
 		</div>
 	</footer>
 	<!-- end copyright -->
+
+	<div class="modal" tabindex="-1" role="dialog" id='thanks'>
+		<div class="modal-dialog " role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"> Thanks to connect with us..
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</h4>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>We will get back to you very soon..</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 

@@ -65,3 +65,23 @@ $(document).ready(function(){
         autoPlay:true
     });
 })
+
+function postQuery(data){
+    $.ajax({
+        url:'./api/query?'+$('#QueryForm').serialize(),
+        type:'POST',
+        data:{
+            name:$("#name").val(),
+            email:$("#email").val(),
+            message:$("#message").val()
+        },
+        success:function(){
+            $('#QueryForm').trigger("reset");
+            $("#thanks").modal('show');
+            setTimeout(() => {
+                $("#thanks").modal('hide');  
+            }, 9000);
+        }
+    })
+    return false;
+}

@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var config = require('./config');
+var route = require('./router/route');
 
 let app = express();
 app.set('port', process.env.PORT  || config.port); // Set port to 3000 or the provided PORT variable
@@ -32,6 +33,9 @@ app.use(function(req, res, next) {
     }
     return next();
 });
+
+app.use('/api/',  route);
+
 
 //to load  home  page
 app.use('/*', (req, res) => {
