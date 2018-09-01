@@ -476,6 +476,7 @@ header .social-icon li a
 	{
 		border-bottom: 1px solid #505050;
 		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 #contact address .address-title
 	{
@@ -505,7 +506,10 @@ header .social-icon li a
 		vertical-align: top;
 		}
 		#contact address div.addr{
-			width: 90%;
+			width: 87%;
+		}
+		#contact address a{
+			color:#FFF;
 		}
 /* end contact */
 
@@ -594,6 +598,21 @@ header .social-icon li a
 
 /* start 768 media quires */
 @media only screen and ( max-width: 767px ) {
+	.templatemo-nav{
+		background-color: #FFF;
+	}
+	.service-container{
+		display: block;
+	}
+	header{
+		display: none;
+	}
+	.navbar-default .navbar-nav li a{
+		color: #03375a;
+	}
+	.service-container > div{
+		margin-top: 30px;
+	}
 	#home
 		{
 			min-height: 300px;
@@ -736,3 +755,21 @@ header .social-icon li a
 .p-color{
 	color: #f89422;
 }
+
+
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border: 1px solid gray;
+}
+
