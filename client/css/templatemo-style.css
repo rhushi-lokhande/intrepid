@@ -337,13 +337,16 @@ header .social-icon li a
 		background-color: #FFF;
     border: solid 1px #dadada;
 	box-shadow: 0px 0px 5px 2px #e2e2e2;
-	padding: 10px;
+	position: relative;
+	padding-bottom: 60px;
 	}
 	.service-container{
 		display: flex;
 	}
 	.media-img{
 		text-align: center;
+	padding: 10px;
+
 	}
 	.media-img img{
 		max-width: 100%;
@@ -357,6 +360,29 @@ header .social-icon li a
 	#service ul li{
 		padding: 5px 12px;
 		list-style-type: none;
+	}
+	.media-button{
+		text-align: right;
+    background-color: #f3f3f3;
+    padding-right: 20px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    padding: 12px 23px;
+    border-top: solid 1px #e0e0e0;
+    color: #f89423;
+	}
+	.media-button a{
+		color: #f89423;
+	}
+	.media-button a i{
+		color: #f89423;
+		margin-left: 10px;
+	}
+	.media-button a:hover{
+		text-decoration: none;
 	}
 /* end about */
 
@@ -780,4 +806,3 @@ header .social-icon li a
     background-color: gray;
     border: 1px solid gray;
 }
-
