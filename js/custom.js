@@ -52,3 +52,16 @@ $(window).load(function(){
 	$('.preloader').fadeOut(1000); // set duration in brackets    
 });
 /* end preloader */
+
+$(document).ready(function(){
+    $("#testimonial-slider").owlCarousel({
+        items:1,
+        itemsDesktop:[1000,1],
+        itemsDesktopSmall:[980,1],
+        itemsTablet:[768,1],
+        pagination:true,
+        navigation:false,
+        navigationText:["",""],
+        autoPlay:true
+    });
+})
