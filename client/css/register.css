@@ -42,22 +42,26 @@
 #steps{
     display: none;
 }
+#application ul,
 #studentRegistraion ul{
     padding: 7px;
     margin: 0px;
     padding-top: 9px;
 }
+#application ul li,
 #studentRegistraion ul li{
 
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 17px;
 }
+#application .ulGender,
 #studentRegistraion .ulGender {
     padding: 0px;
     margin: 0px;
     padding-top: 0px;
 }
+#application .ulGender li,
 #studentRegistraion .ulGender li{
     margin-bottom: 0px;
     padding-top: 0px;
@@ -74,7 +78,7 @@
     font-weight: normal;
 }
 .error{
-    color: red;
+    color: red ;
 }
 .commands{
     display: inline-block;
@@ -86,7 +90,7 @@
     border-top: solid 1px #d4d4d4;
 }
 .error{
-    border: solid 1px red;
+    border: solid 1px red !important;
 }
 label.error {
     display: none !important;
@@ -122,4 +126,40 @@ label.error {
 .datepicker-top-left, .datepicker-top-right,.datepicker-top-left:before, .datepicker-top-right:before {
     border-top-color: #f39c12 !important;
     border-bottom-color: #f39c12 !important;
+}
+
+
+
+#application .footer{
+    padding: 15px 15px;
+    height: 90px;
+    border-top: solid 1px #c1c1c1;
+}
+
+.dm-uploader {
+    border: 1px solid #b3b3b3;
+    text-align: center;
+    padding: 15px 44px;
+}
+
+.dm-uploader.active {
+	border-color: red;
+
+	border-style: solid;
+}
+
+.fileList{
+    display: none;
+    border: solid 1px #c1c1c1;
+    padding: 10px 20px;
+}
+.fileList label{
+    width: 100%;
+}
+.fileList label i{
+    color: red;
+    float: right;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
 }

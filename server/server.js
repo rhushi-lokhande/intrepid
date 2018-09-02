@@ -5,9 +5,20 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var config = require('./config');
 var route = require('./router/route');
-
+var multer  = require('multer')
+var Storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null,path.resolve(__dirname, '../client/uploads'));
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+    }
+});
+var upload = multer({
+    storage: Storage
+}).single('file'); 
 let app = express();
-app.set('port', process.env.PORT  || config.port); // Set port to 3000 or the provided PORT variable
+app.set('port', process.env.PORT || config.port); // Set port to 3000 or the provided PORT variable
 
 mongoose.connection.on('error', console.log);
 mongoose.connection.on('disconnected', connect);
@@ -27,19 +38,33 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.text({ type: 'text/plain' }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     if (req.headers['content-type'] == "text/plain;charset=UTF-8") {
         req.body = JSON.parse(req.body)
     }
     return next();
 });
 
-app.use('/api/',  route);
-
+app.use('/api/', route);
+app.post('/file', function (req, res, next) {
+    upload(req, res, function(err) {
+        if (err) {
+            console.log(err)
+            return res.end("err");
+        }
+        return res.send({
+            uploadPath:'./uploads/'+req.file.filename,
+            filename:req.file.originalname
+        });
+    });
+})
 
 //to load  home  page
 app.use('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/register.html'));
+});
+app.use('/Vacancy', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/job.html'));
 });
 app.use('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));

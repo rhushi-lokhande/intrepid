@@ -219,7 +219,7 @@ function registerStudent(e) {
     $.ajax({
         url: './api/student',
         type: 'POST',
-        data:data,
+        data: data,
         success: function () {
             $('#studentRegistraion').trigger("reset");
             $("#thanks").modal('show');
@@ -229,7 +229,7 @@ function registerStudent(e) {
             }, 9000);
         }
     })
-    
+
     return false;
 }
 $(document).on("submit", "form", function (e) {
@@ -270,6 +270,172 @@ const isValidElement = element => {
 const isCheckbox = element => element.type === 'checkbox';
 
 
-function closeClick(){
+function closeClick() {
     document.location.reload();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function () {
+    /*
+     * For the sake keeping the code clean and the examples simple this file
+     * contains only the plugin configuration & callbacks.
+     * 
+     * UI functions ui_* can be located in: demo-ui.js
+     */
+    $('#IdentityUpload,#ResumeUpload').dmUploader({ //
+        url: './file',
+        maxFileSize: 3000000, // 3 Megs 
+        onDragEnter: function () {
+            // Happens when dragging something over the DnD area
+            this.addClass('active');
+        },
+        onDragLeave: function () {
+            // Happens when dragging something OUT of the DnD area
+            this.removeClass('active');
+        },
+        onBeforeUpload: function (id) {
+        },
+        onUploadSuccess: function (id, data) {
+            // A file was successfully uploaded
+            $(this).parent().find('.dm-uploader').slideUp();
+            var $fileList = $(this).parent().find('.fileList').show().attr('data-filePath', data.uploadPath);
+            $fileList.html('<label>' + data.filename + ' <i class="fa fa-trash removeFile"></i></label>');
+        },
+
+    });
+});
+
+$(document).on('click', '.removeFile', function () {
+    $(this).closest('.fileList').removeAttr('data-filePath').slideUp();
+    $(this).closest('.upload-container').find('.dm-uploader').slideDown();
+})
+$(function () {
+    $("#btnRegister").click(function () {
+        if (validate()) {
+            const form = document.getElementById('application');
+
+            // Get the form data with our (yet to be defined) function.
+            const data = formToJSON(form);
+            data.identityProof = $('.identityFileList').data('filepath');
+            data.resume = $('.resumeFileList').data('filepath');
+            $.ajax({
+                url: './api/tutor',
+                type: 'POST',
+                data: data,
+                success: function () {
+                    $('#application').trigger("reset");
+                    $("#thanks").modal('show');
+                    setTimeout(() => {
+                        $("#thanks").modal('hide');
+                        window.location.reload();
+                    }, 7000);
+                }
+            })
+        }
+    })
+    function validate() {
+        var isValid = true;
+        if (!$("#name").val()) {
+            $("#name").addClass('error');
+            isValid = false;
+        } else {
+            $("#name").removeClass('error');
+
+        }
+
+
+        if (!$("#DOB").val()) {
+            $("#DOB").addClass('error');
+            isValid = false;
+        } else {
+            $("#DOB").removeClass('error');
+
+        }
+
+
+        if (!$("#MobileNo").val() || !$('#MobileNo').val().match(/^(\+\d{1,3}[- ]?)?\d{10}$/)) {
+            $("#MobileNo").addClass('error');
+            isValid = false;
+        } else {
+            $("#MobileNo").removeClass('error');
+
+        }
+
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        re.test(String(email).toLowerCase());
+        if (!$("#email").val() || !re.test($("#email").val().toLowerCase())) {
+            $("#email").addClass('error');
+            isValid = false;
+        } else {
+            $("#email").removeClass('error');
+
+        }
+
+
+
+        if (!$("#address").val()) {
+            $("#address").addClass('error');
+            isValid = false;
+        } else {
+            $("#address").removeClass('error');
+
+        }
+
+
+        if (!$("#qualifications").val()) {
+            $("#qualifications").addClass('error');
+            isValid = false;
+        } else {
+            $("#qualifications").removeClass('error');
+
+        }
+
+
+
+        if (!$("#subject").val()) {
+            $(".bootstrap-tagsinput").addClass('error');
+            isValid = false;
+        } else {
+            $(".bootstrap-tagsinput").removeClass('error');
+
+        }
+
+        if (!$('input[name=days]:checked').length) {
+            $('.uldays').addClass('error');
+            isValid = false;
+        } else {
+            $('.uldays').removeClass('error');
+        }
+
+        if (!$('.identityFileList').data('filepath')) {
+            $('#IdentityUpload').addClass('error');
+            isValid = false;
+        } else {
+            $('#IdentityUpload').removeClass('error');
+        }
+
+
+        if (!$('.resumeFileList').data('filepath')) {
+            isValid = false;
+            $('#ResumeUpload').addClass('error');
+        } else {
+            $('#ResumeUpload').removeClass('error');
+        }
+        return isValid;
+    }
+});
