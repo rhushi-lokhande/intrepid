@@ -1,0 +1,10 @@
+.navbar-brand  img{
+    height: 70px;
+}
+
+#copyright {
+    padding: 20px;
+    padding: 26px;
+    background-color: #000;
+    color: #FFF;
+}

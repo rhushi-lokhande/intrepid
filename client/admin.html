@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Intrepid Academy - A new development towards Education</title>
+	<meta name="keywords" content="class, intrepid, academy, nagpur, tuition classes, home tutor nagpur">
+	<meta name="description" content="To provide personalize attention towards students which bring best out of them & performance of Students is
+	evaluated by conducting regular test & parents meet.">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/admin.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+		.table {
+			margin-top: 50px;
+			margin-bottom: 70px;
+		}
+	</style>
+
+</head>
+
+<body id="top">
+
+	<!-- start preloader -->
+	<div class="preloader">
+		<div class="sk-spinner sk-spinner-wave">
+			<div class="sk-rect1"></div>
+			<div class="sk-rect2"></div>
+			<div class="sk-rect3"></div>
+			<div class="sk-rect4"></div>
+			<div class="sk-rect5"></div>
+		</div>
+	</div>
+	<!-- end preloader -->
+
+
+	<!-- start navigation -->
+	<nav class="navbar navbar-default templatemo-nav" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand ">
+					<span>Intrepid</span>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="/admin">HOME</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- end navigation -->
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a data-toggle="tab" href="#students">Students</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#tutors">Tutors</a>
+						</li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="students" class="tab-pane fade in active table-responsive">
+							<table id="tblStudent" class="table table-condensed table-hover table-bordered table-striped">
+								<thead>
+									<tr>
+										<td data-field="name">Name</td>
+										<td data-field="gender">Gender</td>
+										<td data-field="dob">DOB</td>
+										<td data-field="MobileNo">Mobile</td>
+										<td data-field="email">Email</td>
+										<td data-field="address">Address</td>
+										<td data-field="standard">Standard</td>
+										<td data-field="subjects">Subjects</td>
+										<td data-field="time">Time</td>
+										<td data-field="days">days</td>
+										<td data-field="school">School</td>
+										<td data-field="score">Score</td>
+										<td data-field="source">Source</td>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+
+						</div>
+						<div id="tutors" class="tab-pane fade table-responsive">
+							<table id="tblTutor" class="table table-condensed table-hover table-bordered table-striped">
+								<thead>
+									<tr>
+										<td data-field="name">Name</td>
+										<td data-field="gender">Gender</td>
+										<td data-field="dob">DOB</td>
+										<td data-field="MobileNo">Mobile</td>
+										<td data-field="email">Email</td>
+										<td data-field="address">Address</td>
+										<td data-field="subjects">Subjects</td>
+										<td data-field="time">Time</td>
+										<td data-field="days">days</td>
+										<td data-field="days">days</td>
+										<td data-field="days">days</td>
+										<td data-field="resume" data-custom="true" data-ele="a">Resume</td>
+										<td data-field="identityProof" data-custom="true" data-ele="a">IdentityProof</td>
+
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- end contact -->
+
+	<!-- start copyright -->
+	<footer id="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">
+						Copyright &copy; 2018-All rights reserved
+						<br> Powered by Macrocosm
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- end copyright -->
+
+	<script>
+
+		$.ajax({
+			url: './api/student',
+			success: function (data) {
+				formTable("#tblStudent", data)
+
+			}
+		})
+		$.ajax({
+			url: './api/tutor',
+			success: function (data) {
+				formTable("#tblTutor", data)
+			}
+		})
+
+
+		function formTable(selector, data) {
+
+			var $table = $(selector);
+			var $cols = $table.find('thead td');
+			var $tbody = $table.find('tbody');
+			console.log($cols)
+			data.forEach(function (r) {
+				var _tr = $('<tr>');
+				$cols.each(function (i, col) {
+					var _td = $('<td>');
+					var d = r[$(col).data('field')];
+					console.log($(col).data('custom'))
+					if ($(col).data('custom') === true) {
+						if ($(col).data('ele') === 'a') {
+							var an = $('<a>');
+							an.attr('href', d).attr('target', "_blank").html($(col).data('field'));
+							_td.html(an);
+						}
+					} else {
+						_td.html(Array.isArray(d) ? d.join(',') : d);
+					}
+					_tr.append(_td);
+				});
+				$tbody.append(_tr)
+			});
+		}
+	</script>
+
+</body>
+
+</html>

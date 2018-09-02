@@ -66,6 +66,9 @@ app.use('/register', (req, res) => {
 app.use('/Vacancy', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/job.html'));
 });
+app.use('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/admin.html'));
+});
 app.use('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
