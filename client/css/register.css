@@ -1,0 +1,125 @@
+.templatemo-nav{
+    position: relative;
+    background-color: #FFF;
+    box-shadow: 0px 1px 5px #888888;
+}
+.navbar-default .navbar-nav li a{
+    color: #333;
+}
+
+#Register{
+    padding-top: 50px;
+    min-height: 500px;
+    background-color:#f3f3f3; 
+    background: #00F260;
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+    background: linear-gradient(to right, #0575E6, #00F260);
+}
+.reg-form{
+    background-color: #FFF;
+    /* box-shadow: 0px 0px 5px 2px #e2e2e2; */
+    /* display: flex; */
+    margin-bottom: 70px;
+}
+/* .reg-form > div:first-child{
+    width: 40%;
+    background-color: #f3f3f3;
+}
+.reg-form > div:nth-child(2){
+    flex: 1;
+    padding: 30px;
+} */
+.reg-form input{
+    border-radius: 0px;
+}
+.reg-form label{
+    /* font-weight: normal; */
+}
+.bootstrap-tagsinput{
+    display: block;
+    /* border-radius: 0px; */
+}
+#steps{
+    display: none;
+}
+#studentRegistraion ul{
+    padding: 7px;
+    margin: 0px;
+    padding-top: 9px;
+}
+#studentRegistraion ul li{
+
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 17px;
+}
+#studentRegistraion .ulGender {
+    padding: 0px;
+    margin: 0px;
+    padding-top: 0px;
+}
+#studentRegistraion .ulGender li{
+    margin-bottom: 0px;
+    padding-top: 0px;
+}
+.icheckbox_line-orange, .iradio_line-orange{
+    display: inline;
+    background: #ffca9b;
+}
+
+.label-info {
+    background-color: #ff7700;
+    font-size: 13px;
+    padding: 4px 13px;
+    font-weight: normal;
+}
+.error{
+    color: red;
+}
+.commands{
+    display: inline-block;
+    /* float: left; */
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 23px 18px;
+    border-top: solid 1px #d4d4d4;
+}
+.error{
+    border: solid 1px red;
+}
+label.error {
+    display: none !important;
+}
+
+.modal.in .modal-dialog {
+    z-index: 9999;
+}
+#btnRegister, .nbtn,button.nbtn{
+    background: #f89422;
+    font-weight: bold;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid #f89422;
+    /* border-radius: 2px; */
+    box-shadow: none;
+    color: #fff;
+    margin-top: 6px;
+    /* margin-bottom: 21px; */
+    padding: 10px 25px;
+    display: inline-block;
+    border-radius: 0px;
+}
+.nbtn:hover,.nbtn:focus,.nbtn:active{
+    text-decoration: none;
+    color: #FFF;
+}
+#btnRegister,
+.nbtn.next{
+    float: right;
+}
+
+.datepicker-top-left, .datepicker-top-right,.datepicker-top-left:before, .datepicker-top-right:before {
+    border-top-color: #f39c12 !important;
+    border-bottom-color: #f39c12 !important;
+}

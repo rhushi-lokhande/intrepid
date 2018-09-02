@@ -38,6 +38,9 @@ app.use('/api/',  route);
 
 
 //to load  home  page
+app.use('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/register.html'));
+});
 app.use('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
