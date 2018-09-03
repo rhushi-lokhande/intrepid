@@ -892,3 +892,14 @@ border: solid 1px #fff;
 .mb-50 {
 	margin-bottom: 50px;
 }
+.read-more i{
+	margin-right: 10px;
+}
+.read-more div{
+	float: left;
+	margin-bottom: 10px;
+}
+.read-more li div:nth-child(2){
+	width: 90%;
+	min-height: 20px;
+}
