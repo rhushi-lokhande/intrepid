@@ -820,3 +820,6 @@ header .social-icon li a
     display: inline-block;
     border-radius: 0px;
 }
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
+    font-size: 75%;
+}
