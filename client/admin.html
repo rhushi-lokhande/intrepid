@@ -77,6 +77,9 @@
 						<li>
 							<a data-toggle="tab" href="#tutors">Tutors</a>
 						</li>
+						<li>
+								<a data-toggle="tab" href="#query">Messages</a>
+							</li>
 					</ul>
 
 					<div class="tab-content">
@@ -126,6 +129,19 @@
 								<tbody></tbody>
 							</table>
 						</div>
+
+						<div id="query" class="tab-pane fade table-responsive">
+								<table id="tblQuery" class="table table-condensed table-hover table-bordered table-striped">
+									<thead>
+										<tr>
+											<td data-field="name">Name</td>
+											<td data-field="email">Email</td>
+											<td data-field="message">Message</td>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -165,7 +181,12 @@
 				formTable("#tblTutor", data)
 			}
 		})
-
+		$.ajax({
+			url: './api/query',
+			success: function (data) {
+				formTable("#tblQuery", data)
+			}
+		})
 
 		function formTable(selector, data) {
 
