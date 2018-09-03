@@ -16,4 +16,12 @@ let TutorController = require('../controller/tutor.controller');
 router.post('/tutor', TutorController.Register);
 router.get('/tutor', TutorController.getTutors);
 
+
+let LoginController = require('../controller/login.controller');
+router.get('/isLogin', LoginController.isUserLogin);
+router.post('/signup', LoginController.signUp);
+router.get('/login', LoginController.login());
+router.get('/logout', LoginController.logout);
+router.get('/redirecto', LoginController.redirecto);
+
 module.exports = router

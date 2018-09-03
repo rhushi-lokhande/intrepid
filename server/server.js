@@ -6,6 +6,9 @@ var mongoose = require('mongoose')
 var config = require('./config');
 var route = require('./router/route');
 var multer  = require('multer')
+let passport = require('passport');
+var session = require('express-session')
+
 var Storage = multer.diskStorage({
     destination: function(req, file, callback) {
         callback(null,path.resolve(__dirname, '../client/uploads'));
@@ -28,8 +31,16 @@ function connect() {
     var options = { server: { socketOptions: { keepAlive: 1 } } };
     mongoose.connect(config.mongoConnection, options);
 }
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: 'auto' }
+}))
 
-
+require('./controller/passport');
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(logger('dev')); // Log requests to the console
 app.use(bodyParser.json()); // Parse JSON data and put it into an object which we can access
@@ -66,13 +77,23 @@ app.use('/register', (req, res) => {
 app.use('/Vacancy', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/job.html'));
 });
-app.use('/admin', (req, res) => {
+app.use('/admin',ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, '../client/admin.html'));
+});
+app.use('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/login.html'));
 });
 app.use('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    return res.redirect('/login')
+}
 //for loggin    
 app.use(logger('dev'));
 
