@@ -23,13 +23,13 @@
 	<script src="js/jquery.singlePageNav.min.js"></script>
 	<script src="js/typed.js"></script>
 	<script src="js/wow.min.js"></script>
-    <script src="./js/jquery.validate.min.js"></script>
-    <script src="js/jquery.formtowizard.js"></script>
-    <script src="./plugin/icheck/icheck.min.js"></script>
-    <script src="./plugin/datepicker/dist/datepicker.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-    <script src="./plugin/tag/dist/bootstrap-tagsinput.min.js"></script>
-    <script src="./plugin/fileupload/dist/js/jquery.dm-uploader.min.js"></script>
+	<script src="./js/jquery.validate.min.js"></script>
+	<script src="js/jquery.formtowizard.js"></script>
+	<script src="./plugin/icheck/icheck.min.js"></script>
+	<script src="./plugin/datepicker/dist/datepicker.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+	<script src="./plugin/tag/dist/bootstrap-tagsinput.min.js"></script>
+	<script src="./plugin/fileupload/dist/js/jquery.dm-uploader.min.js"></script>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 
@@ -226,68 +226,87 @@
 					</h2>
 				</div>
 			</div>
-			<div class="row service-container">
+			<div class="row">
 				<div class="col-md-4 col-sm-5 col-xs-12 col-md-offset-1  col-sm-offset-0 wow fadeInLeft " data-wow-offset="50" data-wow-delay="0.6s">
-					<div class="media">
-						<div class="media-img">
-							<img src="./images/tuitionclasses.jpg" alt="">
-						</div>
-						<div class="media-heading-wrapper">
-							<h3 class="media-heading p-color">Classrooms</h3>
-						</div>
-						<div class="media-body">
-							<ul>
-								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
-									4th to 10th std -All Subjects
-								</li>
-							</ul>
-						</div>
-						<div class="media-button">
-							<a href="">View Details
-								<i class="fa fa-arrow-circle-right"></i>
-							</a>
+					<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front  media">
+								<div class="front">
+									<div class="media-heading-wrapper">
+										<h3 class="media-heading p-color">Classrooms</h3>
+									</div>
+									<div class="media-img">
+										<img src="./images/tuitionclasses.jpg" alt="">
+									</div>
+									<div class="media-botton text-center">
+										<button class="nbtn"> Know More</button>
+									</div>
+								</div>
+							</div>
+							<div class="back">
+								<div class="media-body">
+									<ul>
+										<li>4th to 10th std -All Subjects</li>
+										<li>State / CBSE/ICSE Boards</li>
+										<li>All Subjects</li>
+									</ul>
+
+									<div class="media-botton text-center">
+										<button class="nbtn btn-read-more"> Read More</button>
+									</div>
+								</div>
+								<div class="read-more">
+									<ul>
+										<li>Well Qualified and expert faculty</li>
+										<li>Test on each topic</li>
+										<li>Regular reporting to parents</li>
+										<li>Performance of Students will be evaluated Regular basis</li>
+										<li>Separate doubt clearing sessions</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-5 col-xs-12 col-sm-offset-2 wow fadeInUp" data-wow-offset="50" data-wow-delay="0.9s">
-					<div class="media">
-						<div class="media-img">
-							<img src="./images/tutor.jpg" alt="">
-						</div>
-						<div class="media-heading-wrapper">
-							<h3 class="media-heading p-color">Home Tutorials</h3>
-						</div>
-						<div class="media-body">
-							<ul>
-								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
-									KG to 12th std -All Subjects -All Boards
-									</lia>
-									<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="1.5s">Poly, BE, BCA, BBA, BSC, BCOM </li>
-									<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="2.0s">MSC, MCOM</li>
-							</ul>
-						</div>
-						<div class="media-button">
-							<a href="">View Details
-								<i class="fa fa-arrow-circle-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="hidden col-md-4 col-sm-4 col-xs-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
-					<div class="media">
+					<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front  media">
+								<div class="media-heading-wrapper">
+									<h3 class="media-heading p-color">Home Tutorials</h3>
+								</div>
+								<div class="media-img">
+									<img src="./images/tutor.jpg" alt="">
+								</div>
+								<div class="media-botton text-center">
+									<button class="nbtn"> Know More</button>
+								</div>
+							</div>
+							<div class="back">
+								<div class="media-body">
+									<ul>
+										<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
+											KG to 12th std -All Subjects -All Boards
+											</lia>
+											<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="1.5s">Poly, BE, BCA, BBA, BSC, BCOM </li>
+											<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="2.0s">MSC, MCOM</li>
+									</ul>
+									<div class="media-botton text-center">
+										<button class="nbtn  btn-read-more"> Read More</button>
+									</div>
 
-						<div class="media-img">
-							<img src="./images/online-classes.png" alt="">
-						</div>
-						<div class="media-heading-wrapper">
-							<h3 class="media-heading">Online recorded session</h3>
-						</div>
-						<div class="media-body">
-							<ul>
-								<li class="wow fadeIn" data-wow-offset="50" data-wow-delay="1.9s">
-									Coming soon...
-								</li>
-							</ul>
+								</div>
+								<div class="read-more">
+									<ul>
+										<li>Get personalised 1:1 attention</li>
+										<li>Best Tutors at your place</li>
+										<li>Dedicated attention on student’s strengths and weaknesses</li>
+										<li>Weekly test on each topic</li>
+										<li>Regular Parents meet to evaluate performance of Students and Tutors</li>
+										<li>Best, modern and expert faculties</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

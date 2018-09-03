@@ -46,7 +46,18 @@ $(function () {
     -----------------*/
     new WOW().init();
     var $studentRegistraion = $('#studentRegistraion');
+    $('.flip-container').hover(function(){
+    },function(){
+       $('.media-body').show()
+       $('.read-more').hide()
+    });
 
+
+    $('.btn-read-more').click(function(){
+       var back= $(this).closest(".back");
+       $(back).find('.media-body').hide()
+       $(back).find('.read-more').show()
+    })
 
     jQuery.validator.addMethod("matches", function (value, element, params) {
         return !value || (value && value.match(params));
@@ -439,3 +450,7 @@ $(function () {
         return isValid;
     }
 });
+
+$('.btn-read-more').click(function(){
+    alert('hi')
+})
