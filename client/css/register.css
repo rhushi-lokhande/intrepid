@@ -168,3 +168,6 @@ label.error {
     font-size: 70%;
     color:#909090;
 }
+.navbar-default .navbar-brand img{
+		height: 70px;
+}
