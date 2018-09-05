@@ -189,8 +189,13 @@ header .social-icon li a
 		height: 70px;
 		line-height: 40px;
 		padding: 0px 0px 0px 12px;
+		transition: 0.5s;
 	}
 	.navbar-default .navbar-brand img{
+		height: 120px;
+		transition: 0.5s;
+	}
+	.navbar-default.sticky .navbar-brand img{
 		height: 70px;
 	}
 .navbar-default .navbar-nav li a
@@ -746,7 +751,7 @@ header .social-icon li a
 	background-color: #f3f3f3;
 }
 .testimonial .description:before{
-		content: "";
+		/* content: "";
 		width: 59px;
 		height: 102%;
 		background: #fff;
@@ -754,7 +759,7 @@ header .social-icon li a
 		position: absolute;
 		top: -1px;
 		right: -29px;
-		transform: skewX(-27deg);
+		transform: skewX(-27deg); */
 }
 .testimonial .testimonial-content{
     margin: 20px 0 0 34px;
@@ -831,14 +836,13 @@ header .social-icon li a
 	perspective: 1000px;
 }
 	/* flip the pane when hovered */
-	.flip-container:hover .flipper, 
-	.flip-container.hover .flipper {
+	.flip-container.hover .flipper{
 		transform: rotateY(180deg);
 	}
 
 .flip-container, .front, .back {
 	width: 320px;
-	height: 350px;
+	height: 390px;
 	margin-left: auto;
     margin-right: auto;
 }
@@ -892,14 +896,28 @@ border: solid 1px #fff;
 .mb-50 {
 	margin-bottom: 50px;
 }
+.media-body i,
 .read-more i{
 	margin-right: 10px;
 }
+.media-body div,
 .read-more div{
 	float: left;
 	margin-bottom: 10px;
 }
+.media-body li div:nth-child(2),
 .read-more li div:nth-child(2){
 	width: 90%;
 	min-height: 20px;
+}
+
+.media-body, .read-more{
+	padding: 29px;
+    line-height: 28px;
+}
+.media-back-button {
+	width: 100%;
+}
+.media-back-button .nbtn{
+	border: solid 1px #FFF;
 }

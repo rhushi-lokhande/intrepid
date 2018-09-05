@@ -49,9 +49,12 @@ $(function () {
     $('.flip-container').hover(function(){
     },function(){
        $('.media-body').show()
-       $('.read-more').hide()
+       $('.read-more').hide();
+       $(this).removeClass('hover');
     });
-
+    $('.btnflip').click(function(){
+        $(this).closest('.flip-container').addClass('hover');
+    })
 
     $('.btn-read-more').click(function(){
        var back= $(this).closest(".back");
@@ -187,10 +190,10 @@ $(document).ready(function () {
     $('#time').timepicker({
         timeFormat: 'h:mm p',
         interval: 60,
-        minTime: '10',
+        minTime: '6',
         maxTime: '10:00pm',
         defaultTime: '11',
-        startTime: '10:00',
+        startTime: '06:00',
         dynamic: false,
         dropdown: true,
         scrollbar: true
