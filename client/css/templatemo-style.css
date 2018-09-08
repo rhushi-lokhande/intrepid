@@ -239,7 +239,7 @@ header .social-icon li a
 	{
 		background: url('../images/home-bg.jpg') no-repeat;
 		background-size: cover;
-		padding-top: 185px;
+		padding-top: 240px;
 		padding-bottom: 100px;
 		min-height: 650px;
 		color: #FFF;
@@ -363,7 +363,7 @@ header .social-icon li a
 		height: 221px;
 	}
 	#service ul li{
-		padding: 5px 12px;
+		padding: 4px 12px;
 		list-style-type: none;
 	}
 	.media-button{
@@ -637,6 +637,10 @@ header .social-icon li a
 
 /* start 768 media quires */
 @media only screen and ( max-width: 767px ) {
+	.navbar-default .navbar-brand img {
+		height: 70px;
+		transition: 0.5s;
+	}
 	.templatemo-nav{
 		background-color: #FFF;
 	}
@@ -824,7 +828,8 @@ header .social-icon li a
     /* margin-bottom: 21px; */
     padding: 10px 25px;
     display: inline-block;
-    border-radius: 0px;
+	border-radius: 0px;
+	cursor: pointer;
 }
 .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
     font-size: 75%;
@@ -903,7 +908,7 @@ border: solid 1px #fff;
 .media-body div,
 .read-more div{
 	float: left;
-	margin-bottom: 10px;
+	margin-bottom: 7px;
 }
 .media-body li div:nth-child(2),
 .read-more li div:nth-child(2){
@@ -920,4 +925,12 @@ border: solid 1px #fff;
 }
 .media-back-button .nbtn{
 	border: solid 1px #FFF;
+}
+.media-button a{
+	cursor: pointer;
+	font-size: 15px;
+}
+.media-botton a:hover, .media-botton:focus,.media-botton a:active{
+	color: #FFF;
+	text-decoration: none;
 }
