@@ -101,12 +101,15 @@
             font-size: 13px;
             text-decoration: none;
         }
+
+        .error {
+            color: red;
+        }
     </style>
 </head>
 
 <body id="LoginForm">
     <div class="container">
-        <h1 class="form-heading">login Form</h1>
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
@@ -127,7 +130,9 @@
                         <input type="password" class="form-control" required id="password" placeholder="Password">
 
                     </div>
-                    
+                    <div>
+                        <label id="loginError" class="error"></label>
+                    </div>
                     <button type="submit" class="btn btn-primary">Login</button>
 
                 </form>
@@ -135,19 +140,22 @@
         </div>
     </div>
     </div>
-<script>
-    function login(){
-        $.ajax({
-            url:'./api/login?username='+$("#username").val()+'&password='+$("#password").val(),
-            type:"GET",
-            success:function(res){
-               if(res.msg){
-                   window.location.href ='./admin';
-               }
-            }
-        })
-    }
-</script>
+    <script>
+        function login() {
+            $("#loginError").html('')
+            $.ajax({
+                url: './api/login?username=' + $("#username").val() + '&password=' + $("#password").val(),
+                type: "GET",
+                success: function (res) {
+                    if (res.msg === 'true') {
+                        window.location.href = './admin';
+                    } else {
+                        $("#loginError").html(res.msg);
+                    }
+                }
+            })
+        }
+    </script>
 
 </body>
 

@@ -11,7 +11,7 @@ let loginController = {
     },
     logout: function (req, res) {
         req.logout();
-        return res.status(302).send({ url: '/' });
+        return res.redirect('../login');
     },
     redirecto: function (req, res) {
 

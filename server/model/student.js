@@ -23,4 +23,4 @@ var StudentSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('student', StudentSchema);
+module.exports = mongoose.model('student2', StudentSchema);

@@ -1,7 +1,7 @@
 let passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-const Admin = mongoose.model('Admin');
+const Admin = require('../model/admin');
 
 passport.serializeUser(function (user, done) {
     done(null, user);

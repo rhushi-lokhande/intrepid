@@ -154,7 +154,8 @@ function postQuery(data) {
         data: {
             name: $("#name").val(),
             email: $("#email").val(),
-            message: $("#message").val()
+            message: $("#message").val(),
+            mobNo: $("#mobNo").val()
         },
         success: function () {
             $('#QueryForm').trigger("reset");

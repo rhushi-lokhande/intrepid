@@ -18,4 +18,4 @@ var TutorSchema = new mongoose.Schema({
     source:String,
 }, { timestamps: true });
 
-module.exports = mongoose.model('tutor', TutorSchema);
+module.exports = mongoose.model('tutor1', TutorSchema);

@@ -21,4 +21,4 @@ AdminSchema.methods.validPassword = function(password) {
 
 AdminSchema.plugin(uniqueValidator, { message: 'is already taken.' });
 
-module.exports = mongoose.model('Admin', AdminSchema);
+module.exports = mongoose.model('Admin1', AdminSchema);

@@ -7,6 +7,7 @@ let QueryController = {
         que.email = req.body.email;
         que.name = req.body.name;
         que.message = req.body.message;
+        que.mobile = req.body.mobNo;
         que.save((err, que) => {
             if (err) {
                 console.log(err);
