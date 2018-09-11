@@ -200,6 +200,9 @@ $(document).ready(function () {
         scrollbar: true
     });
     $('#subject').tagsinput();
+    $('.thank-register').click(function(){
+        window.location.reload();
+    })
 });
 function registerStudent(e) {
     $('.uldays').removeClass('error');
