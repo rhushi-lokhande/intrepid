@@ -5,21 +5,26 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var config = require('./config');
 var route = require('./router/route');
-var multer  = require('multer')
+var multer = require('multer')
 let passport = require('passport');
 var session = require('express-session')
+var { google } = require('googleapis');
+var drive = google.drive('v3');
+var key = require('./token.json');
+var fs = require("fs");
+
 
 var Storage = multer.diskStorage({
-    destination: function(req, file, callback) {
-        callback(null,path.resolve(__dirname, '../client/uploads'));
+    destination: function (req, file, callback) {
+        callback(null, path.resolve(__dirname, '../client/uploads'));
     },
-    filename: function(req, file, callback) {
+    filename: function (req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
     }
 });
 var upload = multer({
     storage: Storage
-}).single('file'); 
+}).single('file');
 let app = express();
 app.set('port', process.env.PORT || config.port); // Set port to 3000 or the provided PORT variable
 
@@ -58,14 +63,54 @@ app.use(function (req, res, next) {
 
 app.use('/api/', route);
 app.post('/file', function (req, res, next) {
-    upload(req, res, function(err) {
-        if (err) {
-            console.log(err)
-            return res.end("err");
-        }
-        return res.send({
-            uploadPath:'./uploads/'+req.file.filename,
-            filename:req.file.originalname
+    upload(req, res, function (err) {
+
+
+        var jwtToken = new google.auth.JWT(
+            key.client_email,
+            null,
+            key.private_key,
+            ['https://www.googleapis.com/auth/drive'],
+            null
+        );
+        
+        jwtToken.authorize(autherror => {
+            if (autherror) {
+                console.log(autherror);
+            }
+            else {
+                console.log('auth success')
+            }
+        })
+        
+        var parent = '1CRHDOYT7LRa7rGEcTJwFEWN3a_DW8kSC';
+        
+        
+
+        var folderId = parent;
+        var fileMetadata = {
+            'name': req.file.filename,
+            parents: [folderId]
+        };
+        var media = {
+            mimeType: req.file.mimetype,
+            body: fs.createReadStream(req.file.path)
+        };
+        drive.files.create({
+            auth: jwtToken,
+            resource: fileMetadata,
+            media: media,
+            fields: 'id'
+        }, function (err, file) {
+            if (err) {
+                // Handle error
+                console.error(err);
+            } else {
+                return res.send({
+                    uploadPath:req.file.filename,
+                    filename:req.file.originalname
+                });
+            }
         });
     });
 })
@@ -77,7 +122,7 @@ app.use('/register', (req, res) => {
 app.use('/Vacancy', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/job.html'));
 });
-app.use('/admin',ensureAuthenticated, (req, res) => {
+app.use('/admin', ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, '../client/admin.html'));
 });
 app.use('/login', (req, res) => {
