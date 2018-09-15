@@ -205,7 +205,7 @@
 					if ($(col).data('custom') === true) {
 						if ($(col).data('ele') === 'a') {
 							var an = $('<a>');
-							an.attr('href', d).attr('target', "_blank").html($(col).data('field'));
+							an.attr('href','https://drive.google.com/open?id='+d).attr('target', "_blank").html($(col).data('field'));
 							_td.html(an);
 						}
 					}else if ($(col).data('type')=="date"){

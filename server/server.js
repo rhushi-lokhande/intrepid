@@ -106,8 +106,9 @@ app.post('/file', function (req, res, next) {
                 // Handle error
                 console.error(err);
             } else {
+                console.log(file)
                 return res.send({
-                    uploadPath:req.file.filename,
+                    uploadPath:file.data.id,
                     filename:req.file.originalname
                 });
             }
