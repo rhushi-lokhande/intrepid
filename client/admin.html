@@ -77,8 +77,8 @@
 							<a data-toggle="tab" href="#tutors">Tutors</a>
 						</li>
 						<li>
-								<a data-toggle="tab" href="#query">Messages</a>
-							</li>
+							<a data-toggle="tab" href="#query">Messages</a>
+						</li>
 					</ul>
 
 					<div class="tab-content">
@@ -86,21 +86,24 @@
 							<table id="tblStudent" class="table table-condensed table-hover table-bordered table-striped">
 								<thead>
 									<tr>
+										<td>Sr. No</td>
+										<td data-field="updatedAt" data-type="date">Date</td>
 										<td data-field="name">Name</td>
 										<td data-field="gender">Gender</td>
 										<td data-field="dob">DOB</td>
 										<td data-field="MobileNo">Mobile</td>
 										<td data-field="email">Email</td>
 										<td data-field="address">Address</td>
+										<td data-field="parentsOccupation">Parents Occupation</td>
 										<td data-field="standard">Standard</td>
 										<td data-field="subjects">Subjects</td>
 										<td data-field="time">Time</td>
 										<td data-field="days">days</td>
 										<td data-field="type">Type</td>
+										<td data-field="board">Board</td>
 										<td data-field="school">School</td>
 										<td data-field="score">Score</td>
 										<td data-field="source">Source</td>
-										<td data-field="updatedAt" data-type="date">Date</td>
 									</tr>
 								</thead>
 								<tbody></tbody>
@@ -111,11 +114,15 @@
 							<table id="tblTutor" class="table table-condensed table-hover table-bordered table-striped">
 								<thead>
 									<tr>
+										<td>Sr. No</td>
+										<td data-field="updatedAt" data-type="date">Date</td>
 										<td data-field="name">Name</td>
 										<td data-field="gender">Gender</td>
 										<td data-field="dob">DOB</td>
 										<td data-field="MobileNo">Mobile</td>
 										<td data-field="email">Email</td>
+										<td data-field="qualifications">Qualifications</td>
+										<td data-field="area">Area</td>
 										<td data-field="address">Address</td>
 										<td data-field="subjects">Subjects</td>
 										<td data-field="time">Time</td>
@@ -123,7 +130,7 @@
 										<td data-field="type">Type</td>
 										<td data-field="resume" data-custom="true" data-ele="a">Resume</td>
 										<td data-field="identityProof" data-custom="true" data-ele="a">IdentityProof</td>
-										<td data-field="updatedAt" data-type="date">Date</td>
+										<td data-field="source">Source</td>
 									</tr>
 								</thead>
 								<tbody></tbody>
@@ -131,19 +138,20 @@
 						</div>
 
 						<div id="query" class="tab-pane fade table-responsive">
-								<table id="tblQuery" class="table table-condensed table-hover table-bordered table-striped">
-									<thead>
-										<tr>
-											<td data-field="name">Name</td>
-											<td data-field="email">Email</td>
-											<td data-field="mobile">Mobile</td>
-											<td data-field="message">Message</td>
-											<td data-field="updatedAt" data-type="date">Date</td>
-										</tr>
-									</thead>
-									<tbody></tbody>
-								</table>
-							</div>
+							<table id="tblQuery" class="table table-condensed table-hover table-bordered table-striped">
+								<thead>
+									<tr>
+										<td>Sr. No</td>
+										<td data-field="updatedAt" data-type="date">Date</td>
+										<td data-field="name">Name</td>
+										<td data-field="email">Email</td>
+										<td data-field="mobile">Mobile</td>
+										<td data-field="message">Message</td>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -196,22 +204,28 @@
 			var $cols = $table.find('thead td');
 			var $tbody = $table.find('tbody');
 			console.log($cols)
-			data.forEach(function (r) {
+			data.forEach(function (r, i) {
 				var _tr = $('<tr>');
+				var _td = $('<td>');
+				_td.html(i + 1);
+				_tr.append(_td);
 				$cols.each(function (i, col) {
 					var _td = $('<td>');
 					var d = r[$(col).data('field')];
+					if(!d){
+						return;
+					}
 					console.log($(col).data('custom'))
 					if ($(col).data('custom') === true) {
 						if ($(col).data('ele') === 'a') {
 							var an = $('<a>');
-							an.attr('href','https://drive.google.com/open?id='+d).attr('target', "_blank").html($(col).data('field'));
+							an.attr('href', 'https://drive.google.com/open?id=' + d).attr('target', "_blank").html($(col).data('field'));
 							_td.html(an);
 						}
-					}else if ($(col).data('type')=="date"){
-						_td.html( new Date(d).toLocaleDateString());
+					} else if ($(col).data('type') == "date") {
+						_td.html(new Date(d).toLocaleDateString());
 					}
-					
+
 					else {
 						_td.html(Array.isArray(d) ? d.join(',') : d);
 					}

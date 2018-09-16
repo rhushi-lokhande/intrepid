@@ -16,6 +16,7 @@ var TutorSchema = new mongoose.Schema({
     identityProof: String,
     resume: String,
     source:String,
+    area:String,
 }, { timestamps: true });
 
-module.exports = mongoose.model('tutor3', TutorSchema);
+module.exports = mongoose.model('tutor1', TutorSchema);

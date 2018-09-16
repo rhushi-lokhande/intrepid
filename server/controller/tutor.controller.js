@@ -21,6 +21,7 @@ let TutorController = {
         tutor.time = req.body.time;
         tutor.subjects = req.body.subject.split(',');
         tutor.source = req.body.source;
+        tutor.area = req.body.area;
         tutor.save((err, tutor) => {
             if (err) {
                 console.log(tutor);

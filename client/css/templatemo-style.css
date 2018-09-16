@@ -545,7 +545,7 @@ header .social-icon li a
 		vertical-align: top;
 		}
 		#contact address div.addr{
-			width: 87%;
+			width: 79%;
 		}
 		#contact address a{
 			color:#FFF;
@@ -816,7 +816,7 @@ header .social-icon li a
     border: 1px solid gray;
 }
 .nbtn,button.nbtn{
-    background: #f89422;
+    background:#ffba6b;
     font-weight: bold;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
@@ -830,6 +830,9 @@ header .social-icon li a
     display: inline-block;
 	border-radius: 0px;
 	cursor: pointer;
+}
+.nbtn:hover{
+	background-color:  #f89422;
 }
 .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
     font-size: 75%;
@@ -933,4 +936,14 @@ border: solid 1px #fff;
 .media-botton a:hover, .media-botton:focus,.media-botton a:active{
 	color: #FFF;
 	text-decoration: none;
+}
+.whatsupapp{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	height: 50px;
+	width: 50px;
+}
+.whatsupapp img{
+	max-width: 100%;
 }
